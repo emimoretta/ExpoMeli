@@ -1,0 +1,102 @@
+*{
+    margin: auto;
+    font-family: 'Poppins';
+}
+
+.success {
+    background-color: #4e83f1; /* Cambia el color de fondo si la verificación es exitosa */
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.container {
+    background-color: #6E07C2;
+    padding: 10px;
+    border-radius: 15px;
+    width: 1200px;
+}
+
+.main{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border-radius: 15px;
+    border-width: 0px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    width: 800px;
+}
+input:focus{
+   outline: none;
+}
+
+#verificar{
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    border-width: 0px;
+    transition: background-color 0.3s, color 0.3s; /* Agregamos una transición suave */
+    margin-left: 10px;
+}
+
+.start{
+    background-color: #FF0060;
+}
+
+.centrado{
+    text-align: center;
+}
+
+#logo{
+    width: 30%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+footer{
+    background: linear-gradient(#6E07C2, #FF0060);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Color de fondo del footer */
+    color: white; /* Color del texto del footer */
+    padding: 10px; /* Espaciado interno del footer */
+    text-align: center; /* Centrar el contenido del footer */
+    height: 150px;
+}
+
+#designedBy{
+    position: relative;
+    top: 40%;
+}
+
+#status {
+    margin-top: 20px;
+}
+
+#rrss{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    top: 60%;
+    width: 100px;
+}
+
+#imagen img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#downloadBtn{
+    border-radius: 15px;
+    border-width: 0px;
+    padding: 10px;
+    background-color: #f0ad4e;
+    color: white;
+    font-weight: bold;
+}
