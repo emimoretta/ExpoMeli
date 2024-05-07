@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificador de URL de MercadoLibre</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="slider.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,26 +25,76 @@
     <h3 class="centrado">No uses más el click derecho</h3>
 
     <section class="main centrado">
-        <div class="container">
+        <div id="searchBar" class="container">
             <input type="text" id="urlInput" placeholder="Ingrese URL de MercadoLibre">
             <button id="verificar" class="start" onclick="verificarURL()">Verificar</button>
         </div>
-        <div id="status" class="centrado"></div>
+        <div id="status" class="centrado"><h3>Las imágenes aparecerán aquí</h3></div>
         <div id="imagen" class="centrado"></div>
         <div id="downloadBtnContainer" style="display: none;" class="centrado">
             <button id="downloadBtn" onclick="descargarImagenes()">Descargar</button>
         </div>
     </section>
     
-    <script src="script.js"></script>
+    <div class="slide-container">
+        <input type="radio" name="slider" id="home" />
+        <input type="radio" name="slider" id="features" />
+        <input type="radio" name="slider" id="blogs" />
+        <input type="radio" name="slider" id="about" />
+        <input type="radio" name="slider" id="contact" />
+        <nav class="slide-nav">
+          <label for="home" class="home">About</label>
+          <label for="features" class="features">Tutorial</label>
+          <label for="blogs" class="blogs">Tecnología</label>
+          <label for="contact" class="contact">Contacto</label>
+          <div class="slider"></div>
+        </nav>
+        <section class="tab-section">
+          <div class="home-tab slide-tab">
+            <h5>¿Para qué sirve?</h5>
+            <p>
+              MeLi Pic te ayuda a republicar tus productos, tomando las imágenes de una publicación anterior, ahorrando tiempo y haciendo mejor el trabajo.
+            </p>
+          </div>
+          <div class="features-tab slide-tab">
+            <h5>¿Cómo la utilizo?</h5>
+            <p class="centrado">
+                <b>Muy simple.</b> Pegá el link de tu publicación en la barra superior y dale a Verificar. 
+                <br>Te saldrá la vista previa de las imágenes en la calidad más alta disponible
+                en la publicación de Mercadolibre. <br>Clickeá en descargar, confirmá y llevate el .zip con los archivos.
+            </p>
+          </div>
+          <div class="blogs-tab slide-tab">
+            <h5>HTML + CSS + JS</h5>
+            <p class="centrado">
+                Esta web fue desarrollada utilizando HTML + CSS + JS + API MeLi.
+                <br>
+            </p>
+          </div>
+          <div class="contact-tab slide-tab">
+            <h5>Contacto</h5>
+            <a href="">Mis redes sociales están en el footer</a>
+          </div>
+        </section>
+      </div>
+
+    <footer>
+        <h3 id="designedBy">Designed by E.M - 2024</h3>
+        <div id="rrss">
+            <a href="https://www.instagram.com/emimoretta_/" target="_blank" ><i class="fa-brands fa-instagram fa-xl"></i></a>
+            <a href="https://www.linkedin.com/in/emiliano-moretta-a4b9986b/" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+            
+        </div>
+        
+    </footer>
+
+   
+
+      <script src="script.js"></script>
 </body>
 
-<footer>
-    <h3 id="designedBy">Design by E.M 2024</h3>
-    <div id="rrss">
-        <i class="fa-brands fa-instagram fa-xl"></i>
-        <i class="fa-brands fa-linkedin-in fa-xl"></i>
-    </div>
-    
-</footer>
+
+
+
+  
 </html>

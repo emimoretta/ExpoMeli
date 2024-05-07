@@ -52,22 +52,19 @@ input:focus{
 }
 
 #logo{
-    width: 30%;
+    width: auto;
     margin-top: 15px;
     margin-bottom: 30px;
 }
 
 footer{
     background: linear-gradient(#6E07C2, #FF0060);
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     background-color: #333; /* Color de fondo del footer */
     color: white; /* Color del texto del footer */
-    padding: 10px; /* Espaciado interno del footer */
     text-align: center; /* Centrar el contenido del footer */
     height: 150px;
+    margin-top:30px;
 }
 
 #designedBy{
@@ -87,9 +84,16 @@ footer{
     width: 100px;
 }
 
+#imagen {
+    justify-content: space-between;
+}
+
 #imagen img {
     max-width: 300px;
     max-height: 300px;
+    border-radius:15px;
+    margin: 3px;
+    box-shadow: 2px 2px 2px 2px #0000002a;
 }
 
 #downloadBtn{
@@ -100,3 +104,39 @@ footer{
     color: white;
     font-weight: bold;
 }
+
+#downloadBtnContainer{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+  @media (max-width: 1150px) {
+    /* Estilos que se aplicarán cuando el ancho de la pantalla sea menor que 1170px */
+     #searchBar{
+        min-width: 300px;
+        width:auto;
+    }
+     #searchBar>input{
+        width: 50%
+     }
+     #logo{
+        width: 50%
+     }
+
+     footer{
+        width: auto;
+     }
+     .slide-container{
+        width: auto!important;
+     }
+  }
+
+    #rrss>a:hover, a:visited, a:link, a:active
+    {
+        color: white;
+        text-decoration: none;
+    }

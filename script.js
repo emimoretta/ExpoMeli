@@ -4,6 +4,7 @@ async function verificarURL() {
     const apiUrl = `https://api.mercadolibre.com/items/${itemId}`;
 
     const verifyBtn = document.getElementById('verificar');
+    document.getElementById('imagen').innerHTML='';
     verifyBtn.innerText = 'Verificando...';
 
     try {
@@ -33,10 +34,14 @@ async function verificarURL() {
             }
         } else {
             document.getElementById('status').innerText = 'La URL ingresada no es válida';
+            document.getElementById('imagen') = '';
+            document.getElementById('downloadBtnContainer').style.display = 'none';
         }
     } catch (error) {
         console.error('Error al verificar la URL:', error);
         document.getElementById('status').innerText = 'Ha ocurrido un error al verificar la URL';
+        document.getElementById('imagen').innerHTML = '';
+        document.getElementById('downloadBtnContainer').style.display = 'none';
     }
 }
 
@@ -91,4 +96,19 @@ async function descargarImagenes() {
         console.error('Error al descargar las imágenes:', error);
         document.getElementById('status').innerText = 'Ha ocurrido un error al descargar las imágenes';
     }
+}
+
+function mostrarModal() {
+    document.getElementById('myModal').style.display = 'block';
+}
+
+// Cerrar modal
+function cerrarModal() {
+    document.getElementById('myModal').style.display = 'none';
+}
+
+// Función para descargar el .zip
+function descargar() {
+    // Lógica para descargar el .zip aquí
+    cerrarModal(); // Cerrar modal después de descargar
 }
