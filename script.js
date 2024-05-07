@@ -87,7 +87,7 @@ async function descargarImagenes() {
                 const pictureApiUrl = `https://api.mercadolibre.com/pictures/${pictureId}`;
                 const pictureResponse = await fetch(pictureApiUrl);
                 const pictureData = await pictureResponse.json();
-                const imageUrl = pictureData.variations[0].url;
+                const imageUrl = pictureData.variations[0].url.replace(/^http:/, 'https:');
 
                 const response = await fetch(imageUrl);
                 const blob = await response.blob();
@@ -108,6 +108,7 @@ async function descargarImagenes() {
     } catch (error) {
         console.error('Error al descargar las imágenes:', error);
         document.getElementById('status').innerText = 'Ha ocurrido un error al descargar las imágenes';
+        console.log
         
     }
 }
