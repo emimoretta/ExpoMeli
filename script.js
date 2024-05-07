@@ -17,8 +17,8 @@ async function verificarURL() {
             verifyBtn.innerText = 'OK';
             verifyBtn.classList.remove('start');
             verifyBtn.classList.add('success');
-            document.getElementById('downloadBtnContainer').style.display = 'block'; // Mostrar botón de descarga
-            
+            document.getElementById('downloadBtnContainer').style.display = 'block'; // Mostrar botï¿½n de descarga
+
 
             for (let picture of pictures) {
                 const pictureId = picture.id;
@@ -33,7 +33,7 @@ async function verificarURL() {
                 imageContainer.appendChild(imgElement);
             }
         } else {
-            document.getElementById('status').innerText = 'La URL ingresada no es válida';
+            document.getElementById('status').innerText = 'La URL ingresada no es vÃ¡lida';
             document.getElementById('imagen') = '';
             document.getElementById('downloadBtnContainer').style.display = 'none';
         }
@@ -46,19 +46,28 @@ async function verificarURL() {
 }
 
 function getItemId(url) {
-    const regex = /\/MLA-(\d+)\-/; // Expresión regular para capturar el ID del artículo
+    const regex = /\/MLA-(\d+)\-/; // Expresiï¿½n regular para capturar el ID del artï¿½culo
     const match = url.match(regex); // Buscar coincidencias en la URL
     if (match && match.length > 1) {
         console.log(match[1])
-        return "MLA"+match[1]; // El ID es la primera captura del grupo en la expresión regular
+        return "MLA"+match[1]; // El ID es la primera captura del grupo en la expresiï¿½n regular
     } else {
-        return null; // Si no se encuentra un ID válido, devuelve null
+        return null; // Si no se encuentra un ID vï¿½lido, devuelve null
     }
+}
+
+function limpiar(){
+    const urlInput = document.getElementById('urlInput').value = '';
+    document.getElementById('imagen').innerHTML = '';
+    document.getElementById('downloadBtnContainer').style.display = 'none';
 }
 
 
 async function descargarImagenes() {
+    document.getElementById('downloadBtnContainer').style.display = 'none';
+    const loading = document.getElementById('loading').style.display = 'block';
     const urlInput = document.getElementById('urlInput').value;
+
     const itemId = getItemId(urlInput);
     const apiUrl = `https://api.mercadolibre.com/items/${itemId}`;
 
@@ -87,14 +96,19 @@ async function descargarImagenes() {
             }
 
             zip.generateAsync({ type: "blob" }).then(function (content) {
-                saveAs(content, "imagenes.zip");
+                
+                document.getElementById('loading').style.display = 'none';
+                saveAs(content, itemId+".zip");
+                document.getElementById('downloadBtnContainer').style.display = 'block';
             });
         } else {
-            document.getElementById('status').innerText = 'La URL ingresada no es válida';
+            document.getElementById('status').innerText = 'La URL ingresada no es vÃ¡lida';
+          
         }
     } catch (error) {
-        console.error('Error al descargar las imágenes:', error);
-        document.getElementById('status').innerText = 'Ha ocurrido un error al descargar las imágenes';
+        console.error('Error al descargar las imÃ¡genes:', error);
+        document.getElementById('status').innerText = 'Ha ocurrido un error al descargar las imÃ¡genes';
+        
     }
 }
 
@@ -107,8 +121,8 @@ function cerrarModal() {
     document.getElementById('myModal').style.display = 'none';
 }
 
-// Función para descargar el .zip
+// Funciï¿½n para descargar el .zip
 function descargar() {
-    // Lógica para descargar el .zip aquí
-    cerrarModal(); // Cerrar modal después de descargar
+    // Lï¿½gica para descargar el .zip aquï¿½
+    cerrarModal(); // Cerrar modal despuï¿½s de descargar
 }
