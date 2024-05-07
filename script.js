@@ -60,6 +60,10 @@ function limpiar(){
     const urlInput = document.getElementById('urlInput').value = '';
     document.getElementById('imagen').innerHTML = '';
     document.getElementById('downloadBtnContainer').style.display = 'none';
+    verifyBtn.innerText = 'Verificar';
+    verifyBtn.classList.remove('success');
+    verifyBtn.classList.add('start');
+
 }
 
 
