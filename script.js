@@ -18,6 +18,7 @@ async function verificarURL() {
             verifyBtn.classList.remove('start');
             verifyBtn.classList.add('success');
             document.getElementById('downloadBtnContainer').style.display = 'block'; // Mostrar bot�n de descarga
+            document.getElementById('status').getElementsByClassName('mensaje')[0].innerHTML = 'Las imágenes encontradas son: ';
 
 
             for (let picture of pictures) {
@@ -33,16 +34,23 @@ async function verificarURL() {
                 imageContainer.appendChild(imgElement);
             }
         } else {
-            document.getElementById('status').innerText = 'La URL ingresada no es válida';
+            document.getElementById('status').getElementsByClassName('mensaje')[0].innerHTML = 'La URL ingresada no es válida';
             document.getElementById('imagen') = '';
             document.getElementById('downloadBtnContainer').style.display = 'none';
+            renovarBotonOK();
+            cambiarTextoConAnimacion();
+
         }
     } catch (error) {
         console.error('Error al verificar la URL:', error);
-        document.getElementById('status').innerText = 'Ha ocurrido un error al verificar la URL';
+        document.getElementById('status').getElementsByClassName('mensaje')[0].innerHTML = 'La URL ingresada no es válida';
         document.getElementById('imagen').innerHTML = '';
         document.getElementById('downloadBtnContainer').style.display = 'none';
+        renovarBotonOK();
+        cambiarTextoConAnimacion();
     }
+
+
 }
 
 function getItemId(url) {
@@ -60,10 +68,15 @@ function limpiar(){
     const urlInput = document.getElementById('urlInput').value = '';
     document.getElementById('imagen').innerHTML = '';
     document.getElementById('downloadBtnContainer').style.display = 'none';
+    renovarBotonOK()
+    document.getElementById('status').getElementsByClassName('mensaje')[0].innerHTML = 'Las imágenes aparecerán aquí';
+
+}
+
+function renovarBotonOK(){
     document.getElementById('verificar').innerText = 'Verificar';
     document.getElementById('verificar').classList.remove('success');
     document.getElementById('verificar').classList.add('start');
-
 }
 
 
@@ -106,28 +119,23 @@ async function descargarImagenes() {
                 document.getElementById('downloadBtnContainer').style.display = 'block';
             });
         } else {
-            document.getElementById('status').innerText = 'La URL ingresada no es válida';
-          
+            document.getElementById('status').getElementsByClassName('mensaje')[0].innerHTML = 'La URL ingresada no es válida';
+            
         }
     } catch (error) {
         console.error('Error al descargar las imágenes:', error);
-        document.getElementById('status').innerText = 'Ha ocurrido un error al descargar las imágenes';
-        console.log
+        document.getElementById('status').getElementsByClassName('mensaje')[0].innerHTML = 'La URL ingresada no es válida';
+        
         
     }
 }
 
-function mostrarModal() {
-    document.getElementById('myModal').style.display = 'block';
-}
+function cambiarTextoConAnimacion() {
 
-// Cerrar modal
-function cerrarModal() {
-    document.getElementById('myModal').style.display = 'none';
-}
+    document.getElementById('status').getElementsByClassName('mensaje')[0].classList.add('titilar');
+    
+    setTimeout(() => {
+        document.getElementById('status').getElementsByClassName('mensaje')[0].classList.remove('titilar');
+    }, 2000);
 
-// Funci�n para descargar el .zip
-function descargar() {
-    // L�gica para descargar el .zip aqu�
-    cerrarModal(); // Cerrar modal despu�s de descargar
-}
+  }
