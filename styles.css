@@ -146,6 +146,11 @@ footer{
      .slide-container{
         width: auto!important;
      }
+
+     #novedades{
+        height: auto!important;
+     }
+
   }
 
     #rrss>a:hover, a:visited, a:link, a:active
