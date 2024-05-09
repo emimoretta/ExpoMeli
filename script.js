@@ -139,3 +139,18 @@ function cambiarTextoConAnimacion() {
     }, 2000);
 
   }
+
+  function cargarMensaje(){
+    novedad = document.getElementById('novedades');
+    //const mensaje = '';
+    const mensaje = document.createElement('p');
+    mensaje.classList.add('blanco');
+    mensaje.id='novedad1';
+    mensaje.innerHTML="⚡ ¡Preparate para el <b>HotSale</b>! - Del Lunes 13 al Martes 21 de Mayo. ¡Armá tus publicaciones ahora! ⚡"
+    novedad.appendChild(mensaje);
+
+  }
+
+document.addEventListener("DOMContentLoaded",cargarMensaje);
+    
+  

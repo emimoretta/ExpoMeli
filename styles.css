@@ -113,6 +113,11 @@ footer{
     color: white;
 }
 
+.blanco{
+    color: white;
+}
+
+
 #downloadBtnContainer{
     margin-top: 30px;
     margin-bottom: 30px;
@@ -166,3 +171,9 @@ footer{
       .titilar {
         animation: titilar 2s infinite;
       }
+
+#novedades{
+    width: 100%;
+    height: 30px;
+    background-color: #4e83f1;
+}
